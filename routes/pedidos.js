@@ -4,7 +4,7 @@ const router = express.Router()
 // Criação das rotas
 router.get("/", (req, res, next) => {
   res.status(200).send({
-    mensagem: "Só Jesus Salva",
+    mensagem: "Retorna todos os pedidos",
   })
 })
 
