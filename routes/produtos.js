@@ -10,8 +10,14 @@ router.get("/", (req, res, next) => {
 
 // Insere um produto no BD
 router.post("/", (req, res, next) => {
+  const produto = {
+    nome: req.body.nome,
+    preco: req.body.preco,
+  }
+
   res.status(201).send({
     mensagem: "Produto inserido com sucesso",
+    produtoCriado: produto,
   })
 })
 
