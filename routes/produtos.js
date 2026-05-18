@@ -1,5 +1,6 @@
 const express = require("express")
 const router = express.Router()
+const mysql = require("../mysql").pool
 
 // Criação das rotas
 router.get("/", (req, res, next) => {
@@ -10,16 +11,34 @@ router.get("/", (req, res, next) => {
 
 // Insere um produto no BD
 router.post("/", (req, res, next) => {
-  const produto = {
-    nome: req.body.nome,
-    preco: req.body.preco,
-  }
+  mysql.getConnection((err, conn) => {
+    if (err) {
+      return res.status(500).send({
+        error: err,
+        response: null,
+      })
+    }
 
-  res.status(201).send({
-    mensagem: "Produto inserido com sucesso",
-    produtoCriado: produto,
+    conn.query(
+      "INSERT INTO produtos (nome, preco) VALUES (?, ?)",
+      [req.body.nome, req.body.preco],
+      (error, results, fields) => {
+        conn.release()
+        if (error) {
+          return res.status(500).send({
+            error: error,
+            response: null,
+          })
+        }
+        res.status(201).send({
+          mensagem: "Produto inserido com sucesso",
+          id_produto: results.insertId,
+        })
+      },
+    )
   })
 })
+  
 
 // Busca um produto pelo id
 router.get("/:id_produto", (req, res, next) => {

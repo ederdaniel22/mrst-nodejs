@@ -14,9 +14,13 @@
     "body-parser": "^2.2.2",
     "express": "^5.2.1",
     "morgan": "^1.10.1",
+    "mysql2": "^3.22.3",
     "node": "^24.15.0",
     "nodemon": "^3.1.14"
   },
   "author": "Eder Daniel Domingues",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "mysql": "^2.18.1"
+  }
 }

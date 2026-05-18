@@ -1,6 +1,6 @@
 // Criar serviço http
 const http = require("http")
-//Criação so app
+//Criação do app
 const app = require("./app")
 // Define porta padrão
 const port = process.env.PORT || 3000
