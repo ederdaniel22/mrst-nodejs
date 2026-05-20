@@ -11,14 +11,11 @@ router.get("/", (req, res, next) => {
 
 // Insere um produto no BD
 router.post("/", (req, res, next) => {
-  mysql.getConnection((err, conn) => {
-    if (err) {
-      return res.status(500).send({
-        error: err,
-        response: null,
-      })
-    }
 
+  mysql.getConnection((error, conn) => {
+    if (error) {
+      return res.status(500).send({ error: error, response: null })
+    }
     conn.query(
       "INSERT INTO produtos (nome, preco) VALUES (?, ?)",
       [req.body.nome, req.body.preco],

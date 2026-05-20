@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 // Criar serviço http
 const http = require("http")
 //Criação do app
