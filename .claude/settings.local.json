@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm start *)",
+      "Bash(Get-Content *)",
+      "PowerShell(Stop-Process *)",
+      "PowerShell(Invoke-RestMethod -Uri \"http://localhost:3000/produtos\" -Method POST -ContentType \"application/json\" -Body '{\"nome\": \"Produto Teste\", \"preco\": 99.90}' | ConvertTo-Json)",
+      "PowerShell(Start-Sleep -Seconds 3; Invoke-RestMethod -Uri \"http://localhost:3000/produtos\" -Method POST -ContentType \"application/json\" -Body '{\"nome\": \"Produto Teste\", \"preco\": 99.90}' | ConvertTo-Json)",
+      "PowerShell(& \"C:\\\\Program Files\\\\MySQL\\\\MySQL Server 8.0\\\\bin\\\\mysql.exe\" -u root -e \"SELECT user, host, plugin, authentication_string FROM mysql.user WHERE user='root';\" 2>&1)",
+      "PowerShell(& \"C:\\\\Program Files\\\\MySQL\\\\MySQL Server 8.0\\\\bin\\\\mysql.exe\" -u root -proot -e \"SELECT user, host, plugin, authentication_string FROM mysql.user WHERE user='root';\" 2>&1)",
+      "PowerShell(& \"C:\\\\Program Files\\\\MySQL\\\\MySQL Server 8.0\\\\bin\\\\mysql.exe\" -u root -proot -e \"SELECT 'Conexao OK';\" 2>&1)",
+      "PowerShell(& \"C:\\\\Program Files\\\\MySQL\\\\MySQL Server 8.0\\\\bin\\\\mysql.exe\" -u root -p6379 -e \"SELECT 'Conexao OK';\" 2>&1)",
+      "PowerShell(Start-Sleep -Seconds 5; Invoke-RestMethod -Uri \"http://localhost:3000/produtos\" -Method POST -ContentType \"application/json\" -Body '{\"nome\": \"Produto Teste\", \"preco\": 99.90}' | ConvertTo-Json)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "PowerShell(Get-NetTCPConnection *)",
+      "PowerShell(Invoke-RestMethod -Uri \"http://localhost:3000/produtos\" -Method GET | ConvertTo-Json)",
+      "PowerShell(Get-Process *)",
+      "PowerShell(Start-Sleep -Seconds 2; Invoke-RestMethod -Uri \"http://localhost:3000/produtos\" -Method GET | ConvertTo-Json)"
+    ]
+  }
+}

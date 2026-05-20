@@ -2,10 +2,19 @@ const express = require("express")
 const router = express.Router()
 const mysql = require("../mysql").pool
 
-// Criação das rotas
+// Busca todos os produtos
 router.get("/", (req, res, next) => {
-  res.status(200).send({
-    mensagem: "Retorna todos os produtos",
+  mysql.getConnection((error, conn) => {
+    if (error) {
+      return res.status(500).send({ error: error, response: null })
+    }
+    conn.query("SELECT * FROM produtos", (error, results) => {
+      conn.release()
+      if (error) {
+        return res.status(500).send({ error: error, response: null })
+      }
+      res.status(200).send({ produtos: results })
+    })
   })
 })
 
